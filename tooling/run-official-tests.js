@@ -81,13 +81,14 @@ async function runOfficialTests(dashedName) {
         "expect",
         "project",
         "__url",
+        "ROOT",
         `return (async () => {
           ${beforeEachCode}
           ${test.code}
         })()`
       );
 
-      await testFn(__helpers, assert, expect, project, __url);
+      await testFn(__helpers, assert, expect, project, __url, ROOT);
       console.log(`  ✅ Test ${testNum}: ${test.title}`);
       passed++;
       results.push({ testNum, title: test.title, status: "PASSED" });
